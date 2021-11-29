@@ -4,7 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.Map;
+
+import java.util.List;
 
 
 @RestController
@@ -22,22 +23,22 @@ public class EmployeeController {
     }
 
     @GetMapping("/remove")
-    public String removeEmployee(@RequestParam int id) {
-        return "Сотрудник " + employeeServiceImpl.removeEmployee(id) + " удален!";
+    public String removeEmployee(@RequestParam String firstName, @RequestParam String lastName) {
+        return "Сотрудник " + employeeServiceImpl.removeEmployee(firstName, lastName) + " удален!";
     }
 
-    @GetMapping("/find/value")
+    @GetMapping("/find")
     public Employee findEmployeeWithValue(@RequestParam String firstName, @RequestParam String lastName) {
         return employeeServiceImpl.findEmployeeWithValue(firstName, lastName);
     }
 
-    @GetMapping("/find/id")
-    public Employee findEmployeeWithId(@RequestParam int id) {
-        return employeeServiceImpl.findEmployeeWithKey(id);
+    @GetMapping("/find/key")
+    public Employee findEmployeeWithId(@RequestParam String firstName, @RequestParam String lastName) {
+        return employeeServiceImpl.findEmployeeWithKey(firstName, lastName);
     }
 
-    @GetMapping("/get/map")
-    public Map<Integer, Employee> getEmployeeMap() {
+    @GetMapping("/all")
+    public List<Employee> getEmployeeMap() {
         return employeeServiceImpl.getEmployeeMap();
     }
 

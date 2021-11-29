@@ -1,12 +1,12 @@
 package pro.sky.EmployeeWorkListWithMaps;
 
-import java.util.Map;
+import java.util.List;
 
 public interface EmployeeService {
     Employee addEmployee(String firstName, String lastName);
-    Employee removeEmployee(int id);
+    Employee removeEmployee(String firstName, String lastName);
     Employee findEmployeeWithValue(String firstName, String lastName);
-    Employee findEmployeeWithKey(int id);
-    Map<Integer,Employee> getEmployeeMap();
+    Employee findEmployeeWithKey(String firstName, String lastName);
+    List<Employee> getEmployeeMap();
 }
 
