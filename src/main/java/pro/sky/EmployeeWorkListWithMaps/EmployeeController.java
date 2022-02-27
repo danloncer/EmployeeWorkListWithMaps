@@ -27,11 +27,6 @@ public class EmployeeController {
         return "Сотрудник " + employeeServiceImpl.removeEmployee(firstName, lastName) + " удален!";
     }
 
-    @GetMapping("/find")
-    public Employee findEmployeeWithValue(@RequestParam String firstName, @RequestParam String lastName) {
-        return employeeServiceImpl.findEmployeeWithValue(firstName, lastName);
-    }
-
     @GetMapping("/find/key")
     public Employee findEmployeeWithId(@RequestParam String firstName, @RequestParam String lastName) {
         return employeeServiceImpl.findEmployeeWithKey(firstName, lastName);
